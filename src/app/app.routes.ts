@@ -1,12 +1,10 @@
 import { Routes } from '@angular/router';
 import { MainlayoutComponent } from './mainlayout.component/mainlayout.component';
-import { CategoriaListComponent } from './categoria-list.component/categoria-list.component';
-import { CategoriaFormComponent } from './categoria-form.component/categoria-form.component';
 
 export const routes: Routes = [
   { path: 'main', component: MainlayoutComponent, children: [
-    { path: 'list', component: CategoriaListComponent },
-    { path: 'create', component: CategoriaFormComponent },
-    { path: 'edit/:id', component: CategoriaFormComponent },
+    { path: 'list', loadComponent: () => import('./categoria-list.component/categoria-list.component').then((m) => m.CategoriaListComponent) },
+    { path: 'create', loadComponent: () => import('./categoria-form.component/categoria-form.component').then((m) => m.CategoriaFormComponent) },
+    { path: 'edit/:id', loadComponent: () => import('./categoria-form.component/categoria-form.component').then((m) => m.CategoriaFormComponent) },
   ]},
   { path: '**', redirectTo: 'main' }];
