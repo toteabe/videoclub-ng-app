@@ -1,0 +1,17 @@
+<div class="layout-shell d-flex flex-column min-vh-100">
+  <app-header></app-header>
+
+  <main class="flex-grow-1 py-3 py-md-4" role="main">
+    <div class="container-lg px-0 px-lg-3">
+      <div class="row justify-content-center g-0">
+        <section class="col-12 col-lg-10 col-xl-9">
+          <div class="content-stage bg-body shadow-sm p-3 p-sm-4 p-lg-4">
+            <router-outlet></router-outlet>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,14 @@
+.content-stage {
+  border: 1px solid var(--bs-border-color-translucent);
+  border-radius: 0;
+}
+
+.layout-shell {
+  background: var(--bs-tertiary-bg);
+}
+
+@media (min-width: 992px) {
+  .content-stage {
+    border-radius: 1rem;
+  }
+}
