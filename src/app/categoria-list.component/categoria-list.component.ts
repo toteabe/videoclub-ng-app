@@ -23,6 +23,8 @@ ngOnInit() {
     .getAll()
     .subscribe((data) => {
       this.categorias = data;
+      //Actualizo la vista propiedad clásica de modelo del componente en aplicación zoneless 
+      // y para reflejar el cambio en el data-bound
       this.cdr.markForCheck();
     });
 }
