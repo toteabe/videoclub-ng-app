@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 import { BehaviorSubject, distinctUntilChanged, filter, interval, map, Observable, of, Subject, take, tap } from 'rxjs';
 
+//Jest -> 
 describe('App', () => {
 
   // beforeEach(async () => {
@@ -26,7 +27,7 @@ describe('App', () => {
     it('promises vs observables', async () => {
     
       //Railtruck pattern:
-      //then way
+      //then way (happy path)
       //   |
       //   v
       //===X=====X=============X===== resolve
@@ -37,7 +38,8 @@ describe('App', () => {
       //
       //============================= reject
       //               ^
-      //catch way ------
+      //catch way ------ (unhappy path)
+
       parseNumberWithDelay('50')      
       .then( r => {
         return r*2;
@@ -175,7 +177,8 @@ function parseNumberWithDelay(n: string, delay: number = 1000): Promise<number> 
   return new Promise((resolve, reject) => {
     
     setTimeout(() => {
-      const parsed = parseInt(n, 10);
+      //const parsed = parseInt(n, 10);
+      const parsed = Number(n);
       if (isNaN(parsed)) {
         reject(new Error(`Cannot parse '${n}' as a number`));
       } else {
